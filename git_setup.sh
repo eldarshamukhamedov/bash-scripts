@@ -22,13 +22,13 @@ echo "# Starting ssh-agent..."
 eval "$(ssh-agent -s)"
 read -p "# Enter path to your Git SSH key (default=\"~/.ssh/id_rsa\"): " KEY_PATH
 if [ "$KEY_PATH" == "" ]; then
-    KEY_PATH="~/.ssh/id_rsa"
+    KEY_PATH="$HOME/.ssh/id_rsa"
 fi
 echo $KEY_PATH | ssh-add
 
 # Add SSH key to Github account
 echo "# You will now have to add the new key to your Github account"
-pbcopy < $(echo $KEY_PATH)
+pbcopy < $(echo $KEY_PATH.pub)
 echo "# The key has been copied to your paste buffer"
 read -p "# Press enter to open github.com in a browser"
 open "https://github.com/settings/keys"
