@@ -1,4 +1,9 @@
 #cloud-config
+
+#
+# Taken from Project Calico's Vagrant example: https://github.com/projectcalico/calico.git 
+#
+
 ---
 coreos:
   update:
